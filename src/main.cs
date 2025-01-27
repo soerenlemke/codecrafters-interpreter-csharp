@@ -16,10 +16,7 @@ if (command != "tokenize")
 var fileContents = File.ReadAllText(filename);
 var scanner = new Scanner(fileContents);
 
-foreach (var c in fileContents)
-{
-    scanner.ScanTokens();
-}
+scanner.ScanTokens();
 
 foreach (var token in scanner.Tokens)
 {
