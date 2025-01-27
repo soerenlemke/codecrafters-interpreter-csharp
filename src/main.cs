@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-
 if (args.Length < 2)
 {
     Console.Error.WriteLine("Usage: ./your_program.sh tokenize <filename>");
@@ -17,14 +14,14 @@ if (command != "tokenize")
 }
 
 var fileContents = File.ReadAllText(filename);
+var scanner = new Scanner(fileContents);
 
-Console.Error.WriteLine("Logs from your program will appear here!");
-
-if (!string.IsNullOrEmpty(fileContents))
+foreach (var c in fileContents)
 {
-    throw new NotImplementedException("Scanner not implemented");
+    scanner.ScanToken();
 }
-else
+
+foreach (var token in scanner.Tokens)
 {
-    Console.WriteLine("EOF  null"); // Placeholder, remove this line when implementing the scanner
+    Console.WriteLine(token);
 }
