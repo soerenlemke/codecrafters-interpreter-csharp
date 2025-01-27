@@ -16,17 +16,15 @@ if (command != "tokenize")
     Environment.Exit(1);
 }
 
-string fileContents = File.ReadAllText(filename);
+var fileContents = File.ReadAllText(filename);
 
-// You can use print statements as follows for debugging, they'll be visible when running tests.
 Console.Error.WriteLine("Logs from your program will appear here!");
 
-// Uncomment this block to pass the first stage
-// if (!string.IsNullOrEmpty(fileContents))
-// {
-//     throw new NotImplementedException("Scanner not implemented");
-// }
-// else
-// {
-//     Console.WriteLine("EOF  null"); // Placeholder, remove this line when implementing the scanner
-// }
+if (!string.IsNullOrEmpty(fileContents))
+{
+    throw new NotImplementedException("Scanner not implemented");
+}
+else
+{
+    Console.WriteLine("EOF  null"); // Placeholder, remove this line when implementing the scanner
+}
