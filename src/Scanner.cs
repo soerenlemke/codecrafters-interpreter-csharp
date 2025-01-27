@@ -11,10 +11,10 @@
         switch (c)
         {
             case '(':
-                AddToken(TokenType.LeftParen, '(');
+                AddToken(TokenType.LEFT_PAREN, '(');
                 break;
             case ')':
-                AddToken(TokenType.RightParen, ')');
+                AddToken(TokenType.RIGHT_PAREN, ')');
                 break;
             case '\n':
                 _line++;
