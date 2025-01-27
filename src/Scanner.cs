@@ -21,8 +21,8 @@
     {
         return _currentPosition >= source.Length;
     }
-    
-    public void ScanToken()
+
+    void ScanToken()
     {
         var c = Advance();
         switch (c)
@@ -35,8 +35,6 @@
                 break;
             case '\n':
                 _line++;
-                break;
-            default:
                 break;
         }
     }
