@@ -9,5 +9,6 @@
     MINUS,
     PLUS,
     SEMICOLON,
-    STAR
+    STAR,
+    EOF
 }
