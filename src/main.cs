@@ -18,7 +18,7 @@ var scanner = new Scanner(fileContents);
 
 foreach (var c in fileContents)
 {
-    scanner.ScanToken();
+    scanner.ScanTokens();
 }
 
 foreach (var token in scanner.Tokens)
