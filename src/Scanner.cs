@@ -13,6 +13,7 @@
             ScanToken();
         }
 
+        _start = _currentPosition;
         AddToken(TokenType.EOF, string.Empty);
     }
 
