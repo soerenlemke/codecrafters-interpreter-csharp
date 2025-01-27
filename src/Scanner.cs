@@ -35,9 +35,6 @@
             case '\n':
                 _line++;
                 break;
-            case '\0':
-                AddToken(TokenType.EOF, string.Empty);
-                return;
             default:
                 break;
         }
