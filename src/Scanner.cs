@@ -47,7 +47,7 @@
 
     void AddToken(TokenType tokenType, string literal)
     {
-        var text = source.Substring(_start, _currentPosition);
+        var text = source.Substring(_start, _currentPosition - _start);
         Tokens.Add(new Token
         {
             Type = tokenType,
