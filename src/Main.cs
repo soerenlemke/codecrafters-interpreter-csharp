@@ -18,9 +18,10 @@ var scanner = new Scanner(fileContents);
 
 scanner.ScanTokens();
 
-foreach (var token in scanner.Tokens)
+foreach (var token in scanner.Tokens.ToList())
 {
     Console.WriteLine(token);
+    scanner.Tokens.Remove(token);
 }
 
 foreach (var token in scanner.Tokens.Where(token => token.Type == TokenType.ERROR))
