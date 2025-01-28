@@ -42,6 +42,9 @@
             case ',':
                 AddToken(TokenType.COMMA, ",");
                 break;
+            case ';':
+                AddToken(TokenType.SEMICOLON, ";");
+                break;
             case '.':
                 AddToken(TokenType.DOT, ".");
                 break;
@@ -52,7 +55,7 @@
                 AddToken(TokenType.MINUS, "-");
                 break;
             case '*':
-                AddToken(TokenType.MINUS, "*");
+                AddToken(TokenType.STAR, "*");
                 break;
             case '\n':
                 _line++;
