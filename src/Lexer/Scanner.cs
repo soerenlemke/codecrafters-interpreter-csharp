@@ -2,7 +2,7 @@
 {
     int _start;
     int _currentPosition;
-    int _line;
+    int _line = 1;
     public List<Token> Tokens = [];
     
     public void ScanTokens()
