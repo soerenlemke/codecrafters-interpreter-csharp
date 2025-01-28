@@ -23,8 +23,8 @@ foreach (var token in scanner.Tokens)
     Console.WriteLine(token);
 }
 
-if (scanner.Tokens.Any(token => token.Type == TokenType.ERROR))
+foreach (var token in scanner.Tokens.Where(token => token.Type == TokenType.ERROR))
 {
-    Console.Error.WriteLine("Error token detected. Exiting with code 65.");
+    Console.Error.WriteLine($"[line {token.Line}] Error: Unexpected character: {token.Lexeme}");
     Environment.Exit(65);
 }
