@@ -22,3 +22,9 @@ foreach (var token in scanner.Tokens)
 {
     Console.WriteLine(token);
 }
+
+if (scanner.Tokens.Any(token => token.Type == TokenType.ERROR))
+{
+    Console.Error.WriteLine("Error token detected. Exiting with code 65.");
+    Environment.Exit(65);
+}
