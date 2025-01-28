@@ -48,6 +48,9 @@
             case '+':
                 AddToken(TokenType.PLUS, "+");
                 break;
+            case '-':
+                AddToken(TokenType.MINUS, "-");
+                break;
             case '*':
                 AddToken(TokenType.MINUS, "*");
                 break;
