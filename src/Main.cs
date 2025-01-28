@@ -1,3 +1,5 @@
+var hasErrors = false;
+
 if (args.Length < 2)
 {
     Console.Error.WriteLine("Usage: ./your_program.sh tokenize <filename>");
@@ -21,11 +23,15 @@ scanner.ScanTokens();
 foreach (var token in scanner.Tokens.ToList().Where(token => token.Type != TokenType.ERROR))
 {
     Console.WriteLine(token);
-    scanner.Tokens.Remove(token);
 }
 
 foreach (var token in scanner.Tokens.Where(token => token.Type == TokenType.ERROR))
 {
     Console.Error.WriteLine($"[line {token.Line}] Error: Unexpected character: {token.Lexeme}");
+    hasErrors = true;
+}
+
+if (hasErrors)
+{
     Environment.Exit(65);
 }
