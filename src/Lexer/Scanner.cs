@@ -57,6 +57,9 @@
             case '*':
                 AddToken(TokenType.STAR, "*");
                 break;
+            case '=':
+                HandleEqualSign();
+                break;
             case '\n':
                 _line++;
                 break;
@@ -66,7 +69,25 @@
         }
     }
 
+    void HandleEqualSign()
+    {
+        var nextToken = PeakNextToken();
+        if (nextToken == '=')
+        {
+            AddToken(TokenType.EQUAL, nextToken.ToString());
+            Advance();
+            return;
+        }
+        
+        AddToken(TokenType.EQUAL, nextToken.ToString());
+    }
+
     char Advance()
+    {
+        return source[_currentPosition++];
+    }
+
+    char PeakNextToken()
     {
         return source[_currentPosition++];
     }

@@ -10,6 +10,8 @@
     PLUS,
     SEMICOLON,
     STAR,
+    EQUAL,
+    EQUAL_EQUAL,
     EOF,
     ERROR
 }
