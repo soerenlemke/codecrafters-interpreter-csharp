@@ -4,8 +4,8 @@ if (args.Length < 2)
     Environment.Exit(1);
 }
 
-string command = args[0];
-string filename = args[1];
+var command = args[0];
+var filename = args[1];
 
 if (command != "tokenize")
 {

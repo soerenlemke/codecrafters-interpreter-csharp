@@ -1,8 +1,8 @@
 ﻿public class Scanner(string source)
 {
-    int _start = 0;
-    int _currentPosition = 0;
-    int _line = 0;
+    int _start;
+    int _currentPosition;
+    int _line;
     public List<Token> Tokens = [];
     
     public void ScanTokens()
@@ -32,6 +32,12 @@
                 break;
             case ')':
                 AddToken(TokenType.RIGHT_PAREN, ")");
+                break;
+            case '{':
+                AddToken(TokenType.LEFT_BRACE, "{");
+                break;
+            case '}':
+                AddToken(TokenType.RIGHT_BRACE, "{");
                 break;
             case '\n':
                 _line++;
