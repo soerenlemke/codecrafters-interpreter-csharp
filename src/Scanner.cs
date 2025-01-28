@@ -39,6 +39,18 @@
             case '}':
                 AddToken(TokenType.RIGHT_BRACE, "{");
                 break;
+            case ',':
+                AddToken(TokenType.COMMA, ",");
+                break;
+            case '.':
+                AddToken(TokenType.DOT, ".");
+                break;
+            case '+':
+                AddToken(TokenType.PLUS, "+");
+                break;
+            case '*':
+                AddToken(TokenType.MINUS, "*");
+                break;
             case '\n':
                 _line++;
                 break;
