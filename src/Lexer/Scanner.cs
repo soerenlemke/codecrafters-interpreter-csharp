@@ -61,7 +61,7 @@
                 _line++;
                 break;
             default:
-                AddToken(TokenType.ERROR, "Unexpected character '" + c + "'.");
+                AddToken(TokenType.ERROR, c.ToString());
                 break;
         }
     }
