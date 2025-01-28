@@ -10,5 +10,6 @@
     PLUS,
     SEMICOLON,
     STAR,
-    EOF
+    EOF,
+    ERROR
 }

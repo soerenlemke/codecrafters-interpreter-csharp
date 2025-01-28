@@ -7,6 +7,10 @@
 
     public override string ToString()
     {
+        if (Type == TokenType.ERROR)
+        {
+            return $"[line {Line}] " + "Error: Unexpected character: " + Lexeme;
+        }
         return Type + " " + Lexeme + " " + "null";
     }
 }

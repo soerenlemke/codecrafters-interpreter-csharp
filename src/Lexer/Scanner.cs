@@ -60,6 +60,9 @@
             case '\n':
                 _line++;
                 break;
+            default:
+                AddToken(TokenType.ERROR, "Unexpected character '" + c + "'.");
+                break;
         }
     }
 
