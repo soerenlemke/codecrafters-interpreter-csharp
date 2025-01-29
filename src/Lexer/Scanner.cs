@@ -174,20 +174,21 @@
             _currentPosition++;
         }
 
-        // Falls das `"` fehlt: Fehler werfen
         if (_currentPosition >= source.Length)
         {
             AddToken(TokenType.ERROR, "Unterminated string.");
             return;
         }
 
-        // Consume das abschließende `"`.
-        _currentPosition++;
+        _currentPosition++; // Consume abschließendes `"`
 
-        // Extrahiere den tatsächlichen String-Inhalt (ohne Anführungszeichen)
-        var stringContent = source.Substring(_start + 1, (_currentPosition - _start - 2));
-        AddToken(TokenType.STRING, stringContent);
+        // Extrahiere den String **ohne Anführungszeichen**
+        var stringContent = source.Substring(_start + 1, _currentPosition - _start - 2);
+
+        // Speichere den `Literal`-Wert richtig
+        AddToken(TokenType.STRING, "\"" + stringContent + "\"", stringContent);
     }
+
 
     
     char Advance()
@@ -195,15 +196,15 @@
         return source[_currentPosition++];
     }
     
-    void AddToken(TokenType tokenType, string literal)
+    void AddToken(TokenType tokenType, string lexeme, string? literal = null)
     {
-        var text = source.Substring(_start, _currentPosition - _start);
         Tokens.Add(new Token
         {
             Type = tokenType,
-            Lexeme = text,
+            Lexeme = lexeme,
             Literal = literal,
             Line = _line,
         });
     }
+
 }
