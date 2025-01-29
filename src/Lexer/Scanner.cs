@@ -71,7 +71,7 @@
 
     void HandleEqualSign()
     {
-        if (_currentPosition <= source.Length)
+        if (_currentPosition < source.Length)
         {
             var nextToken = PeakNextToken();
             if (nextToken == '=')
