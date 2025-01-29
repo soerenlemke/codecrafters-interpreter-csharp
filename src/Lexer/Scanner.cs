@@ -93,6 +93,9 @@
             case '/':
                 HandleSlashSign();
                 break;
+            case '"':
+                HandleString();
+                break;
             default:
                 AddToken(TokenType.ERROR, c.ToString());
                 break;
@@ -161,6 +164,17 @@
         {
             AddToken(TokenType.SLASH, "/");
         }
+    }
+
+    void HandleString()
+    {
+        while (source[_currentPosition] != '"')
+        {
+            _currentPosition++;
+        }
+        
+        var stringContent = source.Substring(_start, _currentPosition - _start);
+        AddToken(TokenType.STRING, stringContent);
     }
     
     char Advance()
