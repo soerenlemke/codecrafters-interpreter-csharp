@@ -63,6 +63,12 @@
             case '!':
                 HandleBangSign();
                 break;
+            case '<':
+                HandleLessSign();
+                break;
+            case '>':
+                HandleGreaterSign();
+                break;
             case '\n':
                 _line++;
                 break;
@@ -95,6 +101,32 @@
         else
         {
             AddToken(TokenType.BANG, "!");
+        }
+    }
+
+    void HandleLessSign()
+    {
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
+        {
+            _currentPosition++;
+            AddToken(TokenType.LESS_EQUAL, "<=");
+        }
+        else
+        {
+            AddToken(TokenType.LESS, "<");
+        }
+    }
+    
+    void HandleGreaterSign()
+    {
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
+        {
+            _currentPosition++;
+            AddToken(TokenType.GREATER_EQUAL, ">=");
+        }
+        else
+        {
+            AddToken(TokenType.GREATER, ">");
         }
     }
     

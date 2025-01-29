@@ -14,6 +14,10 @@
     EQUAL_EQUAL,
     BANG_EQUAL,
     BANG,
+    LESS,
+    LESS_EQUAL,
+    GREATER,
+    GREATER_EQUAL,
     EOF,
     ERROR
 }
