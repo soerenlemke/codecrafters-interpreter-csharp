@@ -60,6 +60,9 @@
             case '=':
                 HandleEqualSign();
                 break;
+            case '!':
+                HandleBangSign();
+                break;
             case '\n':
                 _line++;
                 break;
@@ -79,6 +82,19 @@
         else
         {
             AddToken(TokenType.EQUAL, "=");
+        }
+    }
+
+    void HandleBangSign()
+    {
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
+        {
+            _currentPosition++;
+            AddToken(TokenType.BANG_EQUAL, "!=");
+        }
+        else
+        {
+            AddToken(TokenType.BANG, "!");
         }
     }
     

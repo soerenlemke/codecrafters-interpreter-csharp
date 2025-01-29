@@ -12,6 +12,8 @@
     STAR,
     EQUAL,
     EQUAL_EQUAL,
+    BANG_EQUAL,
+    BANG,
     EOF,
     ERROR
 }
