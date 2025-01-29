@@ -20,15 +20,15 @@ var scanner = new Scanner(fileContents);
 
 scanner.ScanTokens();
 
-foreach (var token in scanner.Tokens.ToList().Where(token => token.Type != TokenType.ERROR))
-{
-    Console.WriteLine(token);
-}
-
 foreach (var token in scanner.Tokens.Where(token => token.Type == TokenType.ERROR))
 {
     Console.Error.WriteLine($"[line {token.Line}] Error: Unexpected character: {token.Lexeme}");
     hasErrors = true;
+}
+
+foreach (var token in scanner.Tokens.ToList().Where(token => token.Type != TokenType.ERROR))
+{
+    Console.WriteLine(token);
 }
 
 if (hasErrors)

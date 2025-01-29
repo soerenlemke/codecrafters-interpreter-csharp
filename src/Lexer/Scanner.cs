@@ -94,7 +94,6 @@
                 AddToken(TokenType.ERROR, c.ToString());
                 break;
         }
-
     }
 
     void HandleEqualSign()
