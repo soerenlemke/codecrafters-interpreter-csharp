@@ -34,6 +34,7 @@
             }
             return;
         }
+
         var c = Advance();
         switch (c)
         {
@@ -79,6 +80,9 @@
             case '>':
                 HandleGreaterSign();
                 break;
+            case '/':
+                HandleSlashSign();
+                break;
             case '\n':
                 _line++;
                 break;
@@ -86,6 +90,7 @@
                 AddToken(TokenType.ERROR, c.ToString());
                 break;
         }
+
     }
 
     void HandleEqualSign()
