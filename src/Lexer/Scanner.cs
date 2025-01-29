@@ -5,7 +5,6 @@
     int _line = 1;
     public List<Token> Tokens = [];
     bool _comment;
-    string sourceTrimmed = source.Trim();
     
     public void ScanTokens()
     {
@@ -21,7 +20,7 @@
 
     bool IsAtEnd()
     {
-        return _currentPosition >= sourceTrimmed.Length;
+        return _currentPosition >= source.Length;
     }
 
     void ScanToken()
@@ -39,6 +38,8 @@
         var c = Advance();
         switch (c)
         {
+            case ' ':
+                break;
             case '(':
                 AddToken(TokenType.LEFT_PAREN, "(");
                 break;
@@ -96,7 +97,7 @@
 
     void HandleEqualSign()
     {
-        if (_currentPosition < sourceTrimmed.Length && sourceTrimmed[_currentPosition] == '=')
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
         {
             _currentPosition++;
             AddToken(TokenType.EQUAL_EQUAL, "==");
@@ -109,7 +110,7 @@
 
     void HandleBangSign()
     {
-        if (_currentPosition < sourceTrimmed.Length && sourceTrimmed[_currentPosition] == '=')
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
         {
             _currentPosition++;
             AddToken(TokenType.BANG_EQUAL, "!=");
@@ -122,7 +123,7 @@
 
     void HandleLessSign()
     {
-        if (_currentPosition < sourceTrimmed.Length && sourceTrimmed[_currentPosition] == '=')
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
         {
             _currentPosition++;
             AddToken(TokenType.LESS_EQUAL, "<=");
@@ -135,7 +136,7 @@
     
     void HandleGreaterSign()
     {
-        if (_currentPosition < sourceTrimmed.Length && sourceTrimmed[_currentPosition] == '=')
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
         {
             _currentPosition++;
             AddToken(TokenType.GREATER_EQUAL, ">=");
@@ -148,7 +149,7 @@
 
     void HandleSlashSign()
     {
-        if (_currentPosition < sourceTrimmed.Length && sourceTrimmed[_currentPosition] == '/')
+        if (_currentPosition < source.Length && source[_currentPosition] == '/')
         {
             _comment = true;
         }
@@ -160,12 +161,12 @@
     
     char Advance()
     {
-        return sourceTrimmed[_currentPosition++];
+        return source[_currentPosition++];
     }
     
     void AddToken(TokenType tokenType, string literal)
     {
-        var text = sourceTrimmed.Substring(_start, _currentPosition - _start);
+        var text = source.Substring(_start, _currentPosition - _start);
         Tokens.Add(new Token
         {
             Type = tokenType,
