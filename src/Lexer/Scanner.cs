@@ -73,8 +73,11 @@
     {
         if (_currentPosition < source.Length && source[_currentPosition] == '=')
         {
-            _currentPosition++;  // Consume the second '='
-            AddToken(TokenType.EQUAL_EQUAL, "==");
+            _currentPosition++;
+            if (source[_currentPosition] == '=')
+            {
+                AddToken(TokenType.EQUAL_EQUAL, "==");
+            }
         }
         else
         {
