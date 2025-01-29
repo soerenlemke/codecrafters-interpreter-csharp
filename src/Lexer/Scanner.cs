@@ -30,13 +30,19 @@
             var commentChar = Advance();
             if (commentChar == '\n')
             {
+                _line++;
                 _comment = false;
             }
             return;
         }
 
         var c = Advance();
-        if (char.IsWhiteSpace(c)) // Skip Whitespace
+        if (c == '\n')
+        {
+            _line++;
+            return;
+        }
+        if (c == ' ' || c == '\t' || c == '\r')
         {
             return;
         }
@@ -86,9 +92,6 @@
                 break;
             case '/':
                 HandleSlashSign();
-                break;
-            case '\n':
-                _line++;
                 break;
             default:
                 AddToken(TokenType.ERROR, c.ToString());
