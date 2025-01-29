@@ -76,6 +76,7 @@
             var nextToken = PeakNextToken();
             if (nextToken == '=')
             {
+                _currentPosition++;
                 AddToken(TokenType.EQUAL_EQUAL, "==");
             }
         }
