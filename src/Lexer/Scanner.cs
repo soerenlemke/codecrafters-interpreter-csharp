@@ -176,7 +176,7 @@
             }
         }
         
-        var stringContent = source.Substring(_start, _currentPosition - _start);
+        var stringContent = source.Substring(_start + 1, _currentPosition - _start);
         AddToken(TokenType.STRING, stringContent);
     }
     
