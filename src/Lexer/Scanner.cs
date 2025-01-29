@@ -71,18 +71,20 @@
 
     void HandleEqualSign()
     {
-        if (_currentPosition < source.Length - 1 && PeakNextToken() == '=')
+        Console.WriteLine($"DEBUG: Current char '{source[_currentPosition - 1]}', Next char '{(_currentPosition < source.Length ? source[_currentPosition] : ' ')}'");
+
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
         {
-            _currentPosition++;  // Consume second '='
+            _currentPosition++;  // Consume the second '='
             AddToken(TokenType.EQUAL_EQUAL, "==");
+            Console.WriteLine("DEBUG: Added token EQUAL_EQUAL");
         }
         else
         {
             AddToken(TokenType.EQUAL, "=");
+            Console.WriteLine("DEBUG: Added token EQUAL");
         }
     }
-
-
 
     char Advance()
     {
