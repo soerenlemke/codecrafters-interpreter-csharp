@@ -71,7 +71,6 @@
 
     void HandleEqualSign()
     {
-        // TODO: index out of bound since implementing this
         var nextToken = PeakNextToken();
         if (nextToken == '=')
         {
