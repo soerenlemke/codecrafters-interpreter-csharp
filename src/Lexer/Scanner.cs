@@ -36,7 +36,7 @@
         }
 
         var c = Advance();
-        if (c == ' ')
+        if (char.IsWhiteSpace(c))
         {
             return;
         }
