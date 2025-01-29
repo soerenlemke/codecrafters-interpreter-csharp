@@ -71,15 +71,18 @@
 
     void HandleEqualSign()
     {
-        var nextToken = PeakNextToken();
-        if (nextToken == '=')
+        if (_currentPosition >= source.Length)
         {
-            AddToken(TokenType.EQUAL, nextToken.ToString());
-            //_currentPosition++;
-            return;
+            var nextToken = PeakNextToken();
+            if (nextToken == '=')
+            {
+                AddToken(TokenType.EQUAL, nextToken.ToString());
+                //_currentPosition++;
+                return;
+            }
         }
         
-        AddToken(TokenType.EQUAL, nextToken.ToString());
+        AddToken(TokenType.EQUAL, "=");
     }
 
     char Advance()
