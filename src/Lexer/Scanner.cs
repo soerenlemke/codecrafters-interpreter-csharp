@@ -71,7 +71,7 @@
 
     void HandleEqualSign()
     {
-        if (_currentPosition + 1 < source.Length && PeakNextToken() == '=')
+        if (_currentPosition < source.Length && PeakNextToken() == '=')
         {
             _currentPosition++;
             AddToken(TokenType.EQUAL_EQUAL, "==");
