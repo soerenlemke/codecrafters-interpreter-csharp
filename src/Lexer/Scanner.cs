@@ -75,7 +75,7 @@
         if (nextToken == '=')
         {
             AddToken(TokenType.EQUAL, nextToken.ToString());
-            _currentPosition++;
+            //_currentPosition++;
             return;
         }
         
