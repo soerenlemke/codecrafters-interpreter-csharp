@@ -182,12 +182,13 @@
 
         _currentPosition++; // Consume abschließendes `"`
 
-        // Extrahiere den String **ohne Anführungszeichen**
+        // Extrahiere den String **ohne** die Anführungszeichen
         var stringContent = source.Substring(_start + 1, _currentPosition - _start - 2);
 
-        // Speichere den `Literal`-Wert richtig
+        // 🛠 FIX: Speichere Lexeme UND Literal
         AddToken(TokenType.STRING, "\"" + stringContent + "\"", stringContent);
     }
+
 
 
     
@@ -202,9 +203,10 @@
         {
             Type = tokenType,
             Lexeme = lexeme,
-            Literal = literal,
+            Literal = literal, // 🛠 FIX: Jetzt wird der Literal-Wert richtig gespeichert
             Line = _line,
         });
     }
+
 
 }
