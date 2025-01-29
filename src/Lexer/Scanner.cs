@@ -32,6 +32,7 @@
             {
                 _comment = false;
             }
+            return;
         }
         var c = Advance();
         switch (c)
