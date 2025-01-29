@@ -77,12 +77,12 @@
             if (nextToken == '=')
             {
                 AddToken(TokenType.EQUAL_EQUAL, "==");
-                
-                return;
             }
         }
-        
-        AddToken(TokenType.EQUAL, "=");
+        else
+        {
+            AddToken(TokenType.EQUAL, "=");
+        }
     }
 
     char Advance()
