@@ -77,7 +77,7 @@
             if (nextToken == '=')
             {
                 AddToken(TokenType.EQUAL_EQUAL, "==");
-                _currentPosition++;
+                
                 return;
             }
         }
