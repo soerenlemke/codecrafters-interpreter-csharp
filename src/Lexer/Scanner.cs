@@ -36,10 +36,12 @@
         }
 
         var c = Advance();
+        if (c == ' ')
+        {
+            return;
+        }
         switch (c)
         {
-            case ' ':
-                break;
             case '(':
                 AddToken(TokenType.LEFT_PAREN, "(");
                 break;
