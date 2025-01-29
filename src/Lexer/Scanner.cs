@@ -4,6 +4,7 @@
     int _currentPosition;
     int _line = 1;
     public List<Token> Tokens = [];
+    bool _comment = false;
     
     public void ScanTokens()
     {
@@ -24,6 +25,14 @@
 
     void ScanToken()
     {
+        if (_comment)
+        {
+            var commentChar = Advance();
+            if (commentChar == '\n')
+            {
+                _comment = false;
+            }
+        }
         var c = Advance();
         switch (c)
         {
@@ -134,10 +143,7 @@
     {
         if (_currentPosition < source.Length && source[_currentPosition] == '/')
         {
-            while (source[_currentPosition] != '\n')
-            {
-                _currentPosition++;
-            }
+            _comment = true;
         }
         else
         {
