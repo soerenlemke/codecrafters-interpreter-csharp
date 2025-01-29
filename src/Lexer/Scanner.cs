@@ -129,6 +129,21 @@
             AddToken(TokenType.GREATER, ">");
         }
     }
+
+    void HandleSlashSign()
+    {
+        if (_currentPosition < source.Length && source[_currentPosition] == '/')
+        {
+            while (source[_currentPosition] != '\n')
+            {
+                _currentPosition++;
+            }
+        }
+        else
+        {
+            AddToken(TokenType.SLASH, "/");
+        }
+    }
     
     char Advance()
     {

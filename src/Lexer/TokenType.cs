@@ -18,6 +18,7 @@
     LESS_EQUAL,
     GREATER,
     GREATER_EQUAL,
+    SLASH,
     EOF,
     ERROR
 }
