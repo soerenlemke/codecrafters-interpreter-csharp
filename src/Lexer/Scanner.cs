@@ -71,9 +71,9 @@
 
     void HandleEqualSign()
     {
-        if (_currentPosition < source.Length - 1 && PeakNextToken() == '=')
+        if (_currentPosition < source.Length && source[_currentPosition] == '=')
         {
-            _currentPosition++;  // Consume second '='
+            _currentPosition++;  // Consume the second '='
             AddToken(TokenType.EQUAL_EQUAL, "==");
         }
         else
@@ -82,16 +82,9 @@
         }
     }
 
-
-
     char Advance()
     {
         return source[_currentPosition++];
-    }
-
-    char PeakNextToken()
-    {
-        return _currentPosition < source.Length ? source[_currentPosition] : '\0';
     }
     
     void AddToken(TokenType tokenType, string literal)
