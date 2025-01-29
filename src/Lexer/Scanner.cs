@@ -106,6 +106,5 @@
             Literal = literal,
             Line = _line,
         });
-        Console.WriteLine("Adding Token with text: " + text);
     }
 }
