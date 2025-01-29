@@ -168,18 +168,27 @@
 
     void HandleString()
     {
-        if (_currentPosition < source.Length)
+        while (_currentPosition < source.Length && source[_currentPosition] != '"')
         {
-            while (source[_currentPosition] != '"')
-            {
-                _currentPosition++;
-            }
+            if (source[_currentPosition] == '\n') _line++; // Falls der String über mehrere Zeilen geht
+            _currentPosition++;
         }
-        
-        var stringContent = source.Substring(_start, _currentPosition - _start);
-        stringContent.Remove('"');
+
+        // Falls das `"` fehlt: Fehler werfen
+        if (_currentPosition >= source.Length)
+        {
+            AddToken(TokenType.ERROR, "Unterminated string.");
+            return;
+        }
+
+        // Consume das abschließende `"`.
+        _currentPosition++;
+
+        // Extrahiere den tatsächlichen String-Inhalt (ohne Anführungszeichen)
+        var stringContent = source.Substring(_start + 1, (_currentPosition - _start - 2));
         AddToken(TokenType.STRING, stringContent);
     }
+
     
     char Advance()
     {
