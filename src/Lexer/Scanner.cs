@@ -76,7 +76,7 @@
             var nextToken = PeakNextToken();
             if (nextToken == '=')
             {
-                AddToken(TokenType.EQUAL, nextToken.ToString());
+                AddToken(TokenType.EQUAL_EQUAL, "==");
                 _currentPosition++;
                 return;
             }
