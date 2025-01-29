@@ -168,9 +168,12 @@
 
     void HandleString()
     {
-        while (source[_currentPosition] != '"')
+        if (_currentPosition < source.Length)
         {
-            _currentPosition++;
+            while (source[_currentPosition] != '"')
+            {
+                _currentPosition++;
+            }
         }
         
         var stringContent = source.Substring(_start, _currentPosition - _start);
