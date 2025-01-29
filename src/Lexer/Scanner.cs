@@ -71,10 +71,12 @@
 
     void HandleEqualSign()
     {
+        // TODO: index out of bound since implementing this
         var nextToken = PeakNextToken();
         if (nextToken == '=')
         {
             AddToken(TokenType.EQUAL, nextToken.ToString());
+            _currentPosition++;
             return;
         }
         
@@ -88,7 +90,7 @@
 
     char PeakNextToken()
     {
-        return source[_currentPosition++];
+        return source[_currentPosition + 1];
     }
 
     void AddToken(TokenType tokenType, string literal)
